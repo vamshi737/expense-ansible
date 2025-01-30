@@ -46,8 +46,12 @@
 
   - name: copy backend service
     ansible.builtin.copy:
-      src: backend.service
+      src: /home/ec2-user/ansible/backend.service
       dest: /etc/systemd/system/backend.service
+      owner: root
+      group: root
+      mode: '0644'
+
 
   - name: ansible to install pymysql
     ansible.builtin.pip:
